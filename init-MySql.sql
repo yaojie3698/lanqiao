@@ -9,47 +9,58 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `name` varchar(20) primary key,
-  `pwd` varchar(20) COLLATE utf8_bin DEFAULT NULL
+  `pwd` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `grade` int(11) DEFAULT NULL,
+  `rate` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
-INSERT INTO `student` VALUES ('zs', '123');
-INSERT INTO `student` VALUES ('ls', '456');
-INSERT INTO `student` VALUES ('ww', '123456');
+INSERT INTO `student` VALUES ('zs', '123', 20, 1, 0);
+INSERT INTO `student` VALUES ('ls', '456', 21, 2, 0);
+INSERT INTO `student` VALUES ('ww', '123456', 22, 3, 0);
+INSERT INTO `student` VALUES ('zl', '111222', 23, 4, 0);
 
 -- ----------------------------
--- Table structure for book
+-- Table structure for course
 -- ----------------------------
-DROP TABLE IF EXISTS `book`;
-CREATE TABLE `book` (
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
   `name` varchar(20) primary key,
-  `author` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `num` int(11) DEFAULT NULL
+  `teacher` varchar(20) DEFAULT NULL,
+  `difficulty` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
--- Records of book
+-- Records of course
 -- ----------------------------
-INSERT INTO `book` VALUES ('西游记', '吴承恩', 20, 50);
-INSERT INTO `book` VALUES ('三国演义', '罗贯中', 25, 80);
-INSERT INTO `book` VALUES ('红楼梦', '曹雪芹', 30, 30);
-INSERT INTO `book` VALUES ('水浒传', '施耐庵', 18, 60);
+INSERT INTO `course` VALUES ('语文', '郭靖', '低');
+INSERT INTO `course` VALUES ('数学', '黄蓉', '高');
+INSERT INTO `course` VALUES ('英语', '洪七公', '中');
+INSERT INTO `course` VALUES ('C语言', '小龙女', '高');
 
 -- ----------------------------
--- Table structure for sb
+-- Table structure for score
 -- ----------------------------
-DROP TABLE IF EXISTS `sb`;
-CREATE TABLE `sb` (
-  `id` int primary key auto_increment,
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE `score` (
   `sname` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `bname` varchar(20) COLLATE utf8_bin DEFAULT NULL,
-  `begintime` datetime DEFAULT NULL,
-  `endtime` datetime DEFAULT NULL
+  `cname` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `score` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
--- Records of sb
+-- Records of score
 -- ----------------------------
+INSERT INTO `score` VALUES ('zs', '语文', 80);
+INSERT INTO `score` VALUES ('zs', '数学', 70);
+INSERT INTO `score` VALUES ('zs', '英语', 75);
+INSERT INTO `score` VALUES ('ls', '语文', 65);
+INSERT INTO `score` VALUES ('ls', '数学', 90);
+INSERT INTO `score` VALUES ('ls', '英语', 70);
+INSERT INTO `score` VALUES ('ww', '语文', 85);
+INSERT INTO `score` VALUES ('ww', '数学', 60);
+INSERT INTO `score` VALUES ('ww', '英语', 90);
+INSERT INTO `score` VALUES ('zl', 'C语言', 80);
