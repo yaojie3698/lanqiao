@@ -1,0 +1,124 @@
+20211127 1+X 中级实操考试
+
+步骤 2：完成实体类 Student
+//已经提供Student类的属性，补充完成该类的有参（五个参数）及无参构造方法
+	public Student(){}
+	public Student(String name,String pwd,int age,int grade,int rate){
+	this.name=name;
+	this.pwd=pwd;
+	this.age=age;
+	this.grade=grade;
+	this.rate=rate;
+}
+
+步骤 3：完成实体类 Course
+//请修改该方法，并且在赋值时，课程难度只能为：高、中、低这三种之一，其余值不做任何处理。
+	public void setDifficulty(String difficulty) {
+		switch(difficulty){
+			case "高":this.difficulty = difficulty;break;
+			case "中":this.difficulty = difficulty;break;
+			case "低":this.difficulty = difficulty;break;
+			default :break;
+		}
+	}
+	
+步骤 4：完成实体类 Score
+//请修改该方法，以保证打印对象时输出格式如下：(sname=zs;cname=语文;score=80)
+	@Override
+	public String toString() {
+		return "(sname="+sname+";cname="+cname+";score="+score+")";
+	}
+	
+步骤 5：完成 StudentDaoImpl 的 add 方法
+/**
+	 * 插入学生
+	 * @param s 学生对象
+	 * @return
+	 */
+	public int add(Student s) {
+                // 请补全sql语句
+                String sql = "insert into student values (?,?,?,?,?)";
+                return studentUtil.add(sql, s.getName(),s.getPwd(),s.getAge(),s.getGrade(),s.getRate());
+        }
+		
+步骤 6：完成 StudentDaoImpl 的 queryNum 方法
+/**
+	 * 查询学生总人数
+	 * @return 返回总人数
+	 */
+	public int queryNum() {
+                String sql = "select * from student";
+                List<Student> list = studentUtil.getList(sql, Student.class);
+                // 请修改以下代码，保证返回值为总人数，假设所有学生名字都不一样
+                int num = list.size();
+                return num;
+        }
+		
+步骤 7：完成 StudentDaoImpl 的 queryMinAge 方法
+/**
+	 * 查询最小年龄的学生姓名
+	 * @return 返回学生姓名
+	 */
+	public String queryMinAge() {
+                // 请补全sql语句
+                String sql = "select name from student where age = (select min(age) from student)";
+                Student g = studentUtil.getOne(sql, Student.class);
+                return g.getName();
+        }
+		
+步骤 8：完成 CourseDaoImpl 的 queryCourse 方法
+/**
+	 * 根据课程名称来查询课程
+	 * @return 返回课程对象
+	 */
+	public Course queryCourse(String name) {
+                // 请补全sql语句
+                String sql = "select * from `course` where `name` = ?";
+                return courseUtil.getOne(sql, Course.class, name);
+        }
+		
+步骤 9：完成 CourseDaoImpl 的 updateDifficultyByName 方法
+/**
+	 * 根据课程名称来更新课程难度
+	 * @return 更新成功返回true，没有更新成功返回false
+	 */
+	public boolean updateDifficultyByName(String name,String difficulty){
+                // 请补全sql语句
+                String sql = "update course set difficulty = ? where name = ?";
+                int a = courseUtil.update(sql, difficulty, name);
+                if(a>0){
+                        return true;
+                }else{
+                        return false;  
+                }
+        }
+		
+步骤 10：完成 ScoreDaoImpl 的 queryAvgMax 方法
+/**
+	 * 查询平均成绩最高的学生姓名
+	 * @return 返回学生姓名
+	 */
+	public String queryAvgMax() {
+                // 请补全sql语句
+                String sql = "select sname from (select sname,avg(score) as aa from score group by sname)tab1 where aa = (select max(aa) from (select `sname`,avg(score) as aa from score group by sname)tab1)";
+                Score s = scoreUtil.getOne(sql, Score.class);
+                return s.getSname();
+        }
+		
+步骤 11：完成 ScoreDaoImpl 的 queryName 方法
+/**
+	 * 查询至少考了2门课程的学生姓名
+	 * @return 返回所有满足条件的学生姓名的集合
+	 */
+	public Set<String> queryName() {
+                // 查询出满足条件的成绩集合
+                String sql = "select * from score where sname in(select sname from score group by sname having count(*)>=2)";
+                List<Score> li = scoreUtil.getList(sql, Score.class);
+                Set<String> s = new HashSet<String>();
+                // 把集合 li 中的每个成绩对象的名字取出来放进集合 s 中,并返回
+                // 请补全以下代码
+                for (int i = 0; i < li.size(); i++) {     
+                        s.add(li.get(i).getSname());
+                }
+                return s;
+        }

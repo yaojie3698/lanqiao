@@ -1,0 +1,137 @@
+20211030 1+X 中级实操考试
+
+步骤 2：完成实体类 Member
+//已经提供Member类的属性，补充完成该类的有参（四个参数）及无参构造方法
+	public Member() {
+	}
+
+	public Member(String name, String pwd, float score, int rank) {
+		this.name = name;
+		this.pwd = pwd;
+		this.score = score;
+		this.rank = rank;
+	}
+	
+步骤 3：完成实体类 Goods
+//请修改该方法，并且在赋值时，商品数量不能超过100
+	public void setNum(int num) {
+		if (num <= 100) {
+			this.num = num;	
+		}
+	}
+	
+步骤 4：完成工具类 DateUtil的convertFromStringToDate方法
+/**
+	 * 使用全局变量： sdf，将日期转换成字符串
+	 * @param date 需要被转换的日期
+	 * @return 转换之后的字符串形式的日期
+	 */
+	public static String convertFromDateToString(Date date) {
+		// 补全或替换代码
+		
+		return null;
+	}
+	
+步骤 5：完成工具类 DateUtil的convertFromDateToString方法
+/**
+	 * 使用全局变量： sdf，将日期转换成字符串
+	 * @param date 需要被转换的日期
+	 * @return 转换之后的字符串形式的日期
+	 */
+	public static String convertFromDateToString(Date date) {
+		// 补全或替换代码
+		
+		return sdf.format(date);
+	}
+	
+步骤 6：完成 GoodsDaoImpl 的 queryExpensiveGoods 方法
+/**
+	 * 查询所有商品中价钱最贵的商品名称
+	 * @return 返回商品名称
+	 */
+	public String queryExpensiveGoods() {
+                // 请补全sql语句
+                String sql = "select name from goods where price = (select max(price) from goods)";
+                Goods g = goodsUtil.getOne(sql, Goods.class);
+                return g.getName();
+        }
+		
+步骤 7：完成 GoodsDaoImpl 的 querySum 方法
+/**
+	 * 查询所有商品的总价值金额
+	 * @return 返回所有商品的总价值金额
+	 */
+	public double querySum() {
+                String sql = "select * from goods";
+                double sum = 0;
+                List<Goods> list = goodsUtil.getList(sql, Goods.class);
+                for (Goods goods : list) {
+                        // 请补全代码
+                       sum += goods.getNum()*goods.getPrice();
+                }
+                return sum;
+        }
+		
+步骤 8：完成 MemberDaoImpl 的 updatePwd 方法
+/**
+	 * 给每个会员的密码加密
+	 * 加密规则：密码的逆序。
+	 * 如：原来的密码是123，加密后为321。
+	 */
+	public void updatePwd(){
+                // 请补全sql语句
+                String sql = "update member set pwd = reverse(pwd)";
+                memberUtil.update(sql); 
+        }
+		
+步骤 9：完成 MemberDaoImpl 的 updateRank 方法
+/**
+	 * 根据会员的积分来更新会员的等级
+	 * 0<=score<100分，等级为0
+	 * 100<=score<200分，等级为1
+	 * 200<=score<300分，等级为2
+	 * 300<=score<400分，等级为3
+	 * 400<=score<500分，等级为4
+	 * 500<=score分，等级为5
+	 * @return
+	 */
+	public void updateRank() {
+                // 请补全sql语句
+                String sql = "update `member` set `rank` = (case when score between 0 and 99 then 0 "+
+                                                                "when score between 100 and 199 then 1 "+
+                                                                "when score between 200 and 299 then 2 "+
+                                                                "when score between 300 and 399 then 3 "+
+                                                                "when score between 400 and 499 then 4 "+
+                                                                "when score>=500 then 5 end "+
+                                ") ";
+                memberUtil.update(sql); 
+        }
+		
+步骤 10：完成 OrderDaoImpl 的 queryNum 方法
+/**
+	 * 查询一共有多少笔订单
+	 * @return 返回订单数量
+	 */
+	public int queryNum() {
+                String sql = "select * from `order`;";
+                List<Order> o = orderUtil.getList(sql, Order.class); 
+                Set<Integer> s = new HashSet<Integer>();
+                for (Order order : o) {
+                        // 请补全语句
+                        s.add(order.getId());
+                }
+                return s.size();
+        }
+		
+步骤 11：完成 OrderDaoImpl 的 queryMax 方法
+/**
+	 * 查询消费金额最多的人
+	 * @return 返回会员名称
+	 */
+	public String queryMax() {
+                // 请补全sql语句
+                String sql = "SELECT `mname` from (SELECT `mname`,sum(`num`*`price`) as aa  from `order` GROUP BY `mname` ) tab1 where aa = (SELECT max(aa) from (SELECT sum(`num`*`price`) as aa  from `order` GROUP BY `mname`) tab1)";
+                // String sql = "select mname from (select mname,sum(num*price) as aa from order group by mname ) tab1 where aa = (select max(aa) from (select sum(num*price) as aa from order group by mname ) tab1 )";
+                Order o = orderUtil.getOne(sql, Order.class); 
+                return o.getMname();
+        }
