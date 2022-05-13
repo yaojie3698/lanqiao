@@ -1,0 +1,9 @@
+org/lanqiao/dao/CourseDao.class
+org/lanqiao/bean/Course.class
+org/lanqiao/dao/ScoreDao.class
+org/lanqiao/daoimpl/StudentDaoImpl.class
+org/lanqiao/bean/Score.class
+org/lanqiao/bean/Student.class
+org/lanqiao/dao/StudentDao.class
+org/lanqiao/daoimpl/CourseDaoImpl.class
+org/lanqiao/daoimpl/ScoreDaoImpl.class

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.lanqiao.test.ScoreDaoTest" time="2.417" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/project/1plusx_2_proj_test_211219/target/test-classes:/home/project/1plusx_2_proj_test_211219/target/classes:/usr/share/maven/lib/junit/junit/4.11/junit-4.11.jar:/usr/share/maven/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/usr/share/maven/lib/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar:/usr/share/maven/lib/com/oracle/database/jdbc/ojdbc6/11.2.0.4/ojdbc6-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/jdbc/ucp/11.2.0.4/ucp-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/oraclepki/11.2.0.4/oraclepki-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/osdt_cert/11.2.0.4/osdt_cert-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/osdt_core/11.2.0.4/osdt_core-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/ha/simplefan/11.2.0.4/simplefan-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/ha/ons/11.2.0.4/ons-11.2.0.4.jar:/usr/share/maven/lib/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/usr/share/maven/lib/org/lanqiao/1plusx_2_utils/1.1/1plusx_2_utils-1.1.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/project/1plusx_2_proj_test_211219/target/surefire/surefirebooter5225641695068833280.jar /home/project/1plusx_2_proj_test_211219/target/surefire 2021-12-09T12-56-36_963-jvmRun1 surefire2596069417249640781tmp surefire_08028695172758911872tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="org.lanqiao.test.ScoreDaoTest#testQueryName"/>
+    <property name="surefire.test.class.path" value="/home/project/1plusx_2_proj_test_211219/target/test-classes:/home/project/1plusx_2_proj_test_211219/target/classes:/usr/share/maven/lib/junit/junit/4.11/junit-4.11.jar:/usr/share/maven/lib/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/usr/share/maven/lib/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar:/usr/share/maven/lib/com/oracle/database/jdbc/ojdbc6/11.2.0.4/ojdbc6-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/jdbc/ucp/11.2.0.4/ucp-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/oraclepki/11.2.0.4/oraclepki-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/osdt_cert/11.2.0.4/osdt_cert-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/security/osdt_core/11.2.0.4/osdt_core-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/ha/simplefan/11.2.0.4/simplefan-11.2.0.4.jar:/usr/share/maven/lib/com/oracle/database/ha/ons/11.2.0.4/ons-11.2.0.4.jar:/usr/share/maven/lib/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/usr/share/maven/lib/org/lanqiao/1plusx_2_utils/1.1/1plusx_2_utils-1.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/shiyanlou"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/project/1plusx_2_proj_test_211219"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/project/1plusx_2_proj_test_211219/target/surefire/surefirebooter5225641695068833280.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.11+9-Ubuntu-0ubuntu2.20.04"/>
+    <property name="user.name" value="shiyanlou"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.18.0-21-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/usr/share/maven/lib"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-lts"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.11"/>
+    <property name="user.dir" value="/home/project/1plusx_2_proj_test_211219"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="11.0.11+9-Ubuntu-0ubuntu2.20.04"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testQueryName" classname="org.lanqiao.test.ScoreDaoTest" time="2.306"/>
+</testsuite>
